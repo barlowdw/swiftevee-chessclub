@@ -25,6 +25,7 @@ gem 'jbuilder', '~> 2.7'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
+gem "valid_email2"
 gem 'bootstrap', '~> 4.6'
 gem 'jquery-rails', '~> 4.4'
 

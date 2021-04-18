@@ -28,7 +28,6 @@ RSpec.describe Member, type: :model do
     end
 
     it "should not be valid with invalid email" do
-      expect(Member.new(first_name: "Derrick", last_name: "Barlow", email: "barlow.dw@gmail.com", date_of_birth: Date.new(1990, 1, 10))).not_to be_valid
       expect(Member.new(first_name: "Derrick", last_name: "Barlow", email: "barlow.dwgmail.com", date_of_birth: Date.new(1990, 1, 10))).not_to be_valid
       expect(Member.new(first_name: "Derrick", last_name: "Barlow", email: "barlow.dw@com", date_of_birth: Date.new(1990, 1, 10))).not_to be_valid
       expect(Member.new(first_name: "Derrick", last_name: "Barlow", email: "@gmail.com", date_of_birth: Date.new(1990, 1, 10))).not_to be_valid
