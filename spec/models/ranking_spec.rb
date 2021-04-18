@@ -38,10 +38,34 @@ RSpec.describe Ranking, type: :model do
       expect(@rankings.map { |ranking| ranking.reload.position }).to eq([1, 3, 2, 4])
     end
 
+    it "should move up 2" do
+      @rankings[2].move(-2)
+
+      expect(@rankings.map { |ranking| ranking.reload.position }).to eq([2, 3, 1, 4])
+    end
+
+    it "should move up 3" do
+      @rankings[3].move(-3)
+
+      expect(@rankings.map { |ranking| ranking.reload.position }).to eq([2, 3, 4, 1])
+    end
+
     it "should move down 1" do
       @rankings[2].move(1)
 
       expect(@rankings.map { |ranking| ranking.reload.position }).to eq([1, 2, 4, 3])
+    end
+
+    it "should move down 2" do
+      @rankings[1].move(2)
+
+      expect(@rankings.map { |ranking| ranking.reload.position }).to eq([1, 4, 2, 3])
+    end
+
+    it "should move down 3" do
+      @rankings[0].move(3)
+
+      expect(@rankings.map { |ranking| ranking.reload.position }).to eq([4, 1, 2, 3])
     end
 
     it "should not move up 1 if at top" do
