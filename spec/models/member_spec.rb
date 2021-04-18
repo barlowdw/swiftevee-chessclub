@@ -6,6 +6,22 @@ RSpec.describe Member, type: :model do
       expect(Member.new).not_to be_valid
     end
 
+    it "should  notbe valid without first_name" do
+      expect(Member.new(last_name: "Barlow", email: "barlow.dw@gmail.com", date_of_birth: Date.new(1990, 1, 10))).not_to be_valid
+    end
+
+    it "should  notbe valid without last_name" do
+      expect(Member.new(first_name: "Derrick", email: "barlow.dw@gmail.com", date_of_birth: Date.new(1990, 1, 10))).not_to be_valid
+    end
+
+    it "should  notbe valid without email" do
+      expect(Member.new(first_name: "Derrick", last_name: "Barlow", date_of_birth: Date.new(1990, 1, 10))).not_to be_valid
+    end
+
+    it "should  notbe valid without date_of_birth" do
+      expect(Member.new(first_name: "Derrick", last_name: "Barlow", email: "barlow.dw@gmail.com")).not_to be_valid
+    end
+
     it "should be valid with basic attributed" do
       expect(Member.new(first_name: "Derrick", last_name: "Barlow", email: "barlow.dw@gmail.com", date_of_birth: Date.new(1990, 1, 10))).to be_valid
     end
