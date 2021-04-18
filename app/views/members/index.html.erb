@@ -1,0 +1,32 @@
+<div class="container">
+    <h1>Members</h1>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Firstname</th>
+                <th>Lastname</th>
+                <th>Email</th>
+                <th>Date of Birth</th>
+                <th>Club Games Played</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% @members.each do |member| %>
+                <tr>
+                    <td><%= member.first_name %></td>
+                    <td><%= member.last_name %></td>
+                    <td><%= member.email %></td>
+                    <td><%= member.date_of_birth %></td>
+                    <td><%= member.club_games_played %></td>
+                    <td>
+                    <%= link_to "View", member_path(member.id) %> 
+                    <%= link_to "Edit", edit_member_path(member.id) %> 
+                    <%= link_to "Delete", member_path(member.id), method: :delete %></td>
+                </tr>
+            <% end %>
+        </tbody>
+    </table>
+    <%= link_to "New Member", new_member_path, id: "new-btn", class: "btn btn-primary", method: :get %>
+</div>
