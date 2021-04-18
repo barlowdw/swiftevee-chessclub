@@ -53,6 +53,21 @@ RSpec.describe "Members", type: :request do
       expect(member.email).to eq("barlow.dw@gmail.com")
       expect(member.date_of_birth).to eq(Date.new(1990, 1, 10))
     end
+
+    it "stays on screen if member is invalid" do
+      member_params = { 
+        member: {
+          first_name: "Derrick",
+          last_name: nil,
+          email: "barlow.dw@gmail.com",
+          date_of_birth: Date.new(1990, 1, 10),
+        }
+      }
+
+      post members_path, params: member_params.to_json, headers: { "Content-Type": "application/json" }
+
+      expect(response).not_to have_http_status(:redirect)
+    end
   end
 
   describe "PUT update" do
@@ -83,6 +98,23 @@ RSpec.describe "Members", type: :request do
       expect(member.last_name).to eq("Barlow")
       expect(member.email).to eq("barlow.dw@gmail.com")
       expect(member.date_of_birth).to eq(Date.new(1990, 1, 10))
+    end
+
+    it "stays on screen if member is invalid" do
+      member = Member.create!(first_name: "Derrick", last_name: "Barlow", date_of_birth: Date.new(1990, 1, 10), email: "barlow.dw@gmail.com")
+
+      member_params = { 
+        member: {
+          first_name: "Derrick",
+          last_name: nil,
+          email: "barlow.dw@gmail.com",
+          date_of_birth: Date.new(1990, 1, 10),
+        }
+      }
+
+      put member_path(member), params: member_params.to_json, headers: { "Content-Type": "application/json" }
+
+      expect(response).not_to have_http_status(:redirect)
     end
   end
 

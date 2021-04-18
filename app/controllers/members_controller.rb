@@ -38,7 +38,7 @@ class MembersController < ApplicationController
         if @member.update(member_params)
             redirect_to @member
         else
-            render :new
+            render :edit
         end
     end
 
