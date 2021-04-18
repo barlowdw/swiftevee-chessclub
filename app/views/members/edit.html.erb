@@ -1,7 +1,7 @@
 <div class="container">
     <h1>Edit Member</h1>
 
-    <%= form_for(@member, url: member_path(@member.id)) do |form| %>
+    <%= form_for(@member, url: member_path(@member)) do |form| %>
         <div>
             <%= form.label :first_name %>
             <%= form.text_field :first_name, class: 'form-control' %>

@@ -19,9 +19,9 @@
                     <td><%= member.email %></td>
                     <td><%= member.date_of_birth %></td>
                     <td>
-                    <%= link_to "View", member_path(member.id) %> 
-                    <%= link_to "Edit", edit_member_path(member.id) %> 
-                    <%= link_to "Delete", member_path(member.id), method: :delete %></td>
+                    <%= link_to "View", member_path(member) %> 
+                    <%= link_to "Edit", edit_member_path(member) %> 
+                    <%= link_to "Delete", member_path(member), method: :delete %></td>
                 </tr>
             <% end %>
         </tbody>
