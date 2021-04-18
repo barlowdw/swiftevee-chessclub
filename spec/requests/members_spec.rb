@@ -17,7 +17,7 @@ RSpec.describe "Members", type: :request do
 
   describe "GET show" do
     it "returns a successful response" do
-      member = Member.create!
+      member = Member.create!(first_name: "Derrick", last_name: "Barlow", email: "barlow.dw@gmail.com", date_of_birth: Date.new(1990, 1, 10))
       get member_path member
       expect(response).to be_successful
     end
@@ -25,7 +25,7 @@ RSpec.describe "Members", type: :request do
 
   describe "GET edit" do
     it "returns a successful response" do
-      member = Member.create!
+      member = Member.create!(first_name: "Derrick", last_name: "Barlow", email: "barlow.dw@gmail.com", date_of_birth: Date.new(1990, 1, 10))
       get edit_member_path member
       expect(response).to be_successful
     end

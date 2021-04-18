@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe Member, type: :model do
   describe "#valid?" do
     it "should be valid when empty" do
-      expect(Member.new).to be_valid
+      expect(Member.new).not_to be_valid
     end
 
     it "should be valid with basic attributed" do
