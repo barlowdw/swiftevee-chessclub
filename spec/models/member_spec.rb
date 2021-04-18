@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Member, type: :model do
   describe "#valid?" do
-    it "should be valid when empty" do
+    it "should not be valid when empty" do
       expect(Member.new).not_to be_valid
     end
 
