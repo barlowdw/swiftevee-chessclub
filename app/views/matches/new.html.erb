@@ -1,0 +1,44 @@
+<div class="container">
+    <h1>New Match</h1>
+
+    <%= form_for(@match, url: matches_path) do |form| %>
+
+        <div>
+            <%= form.label :member1, "Member 1" %>
+            <%= form.select :member1_id, options_for_select(@members_select), {}, class: 'form-control' %>
+            <% if @match.errors.full_messages_for(:member1).present? %>       
+                <div class="alert alert-warning" role="alert">
+                    <% @match.errors.full_messages_for(:member1).each do |message| %>
+                        <div><%= message %></div>
+                    <% end %>
+                </div>
+            <% end %>
+        </div>
+
+        <div>
+            <%= form.label :member2, "Member 2" %>
+            <%= form.select :member2_id, options_for_select(@members_select), {}, class: 'form-control' %>
+            <% if @match.errors.full_messages_for(:member2).present? %>       
+                <div class="alert alert-warning" role="alert">
+                    <% @match.errors.full_messages_for(:member2).each do |message| %>
+                        <div><%= message %></div>
+                    <% end %>
+                </div>
+            <% end %>
+        </div>
+        <div>
+            <%= form.label :result %>
+            <%= form.select :result, options_for_select('Member 1 Won' => 'member1_win', 'Member 2 Won' => 'member2_win', 'Draw' => 'draw'), {}, class: 'form-control' %>
+            <% if @match.errors.full_messages_for(:result).present? %>       
+                <div class="alert alert-warning" role="alert">
+                    <% @match.errors.full_messages_for(:result).each do |message| %>
+                        <div><%= message %></div>
+                    <% end %>
+                </div>
+            <% end %>
+        </div>
+
+        <%= link_to "Back", members_path, id: "back-btn", class: "btn btn-default", method: :get %>
+        <%= form.submit 'Create', class: 'btn btn-primary' %> 
+    <%end%>
+</div>
