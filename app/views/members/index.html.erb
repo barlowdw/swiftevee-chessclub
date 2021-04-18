@@ -8,7 +8,6 @@
                 <th>Lastname</th>
                 <th>Email</th>
                 <th>Date of Birth</th>
-                <th>Club Games Played</th>
                 <th>Action</th>
             </tr>
         </thead>
@@ -19,7 +18,6 @@
                     <td><%= member.last_name %></td>
                     <td><%= member.email %></td>
                     <td><%= member.date_of_birth %></td>
-                    <td><%= member.club_games_played %></td>
                     <td>
                     <%= link_to "View", member_path(member.id) %> 
                     <%= link_to "Edit", edit_member_path(member.id) %> 
