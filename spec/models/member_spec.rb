@@ -39,4 +39,34 @@ RSpec.describe Member, type: :model do
       expect(Member.new(first_name: "Bill", last_name: "Bailey", email: "barlow.dw@gmail.com", date_of_birth: Date.new(1965, 1, 13))).not_to be_valid
     end
   end
+
+  describe "#matches" do
+    it "should retrieve all matches" do
+      member1 = Member.create!(first_name: "Derrick", last_name: "Barlow", email: "barlow.dw@gmail.com", date_of_birth: Date.new(1990, 1, 10))
+      member2 = Member.create!(first_name: "Bill", last_name: "Bailey", email: "bailey.mr@gmail.com", date_of_birth: Date.new(1965, 1, 13))
+      member3 = Member.create!(first_name: "Kimmy", last_name: "Carr", email: "carr.j@gmail.com", date_of_birth: Date.new(1972, 9, 15))
+      member4 = Member.create!(first_name: "Ricky", last_name: "Gervais", email: "gervais.rd@gmail.com", date_of_birth: Date.new(1961, 6, 25))
+      
+      match1 = Match.create!(member1: member1, member2: member2, result: :member1_win)
+      match2 = Match.create!(member1: member3, member2: member1, result: :member2_win)
+      match3 = Match.create!(member1: member1, member2: member3, result: :draw)
+      match4 = Match.create!(member1: member4, member2: member1, result: :member1_win)
+
+      expect(member1.matches.count).to eq 4
+      expect(member2.matches.count).to eq 1
+
+      member1MatchesIds = member1.matches.all.map { |match| match.id }
+      member2MatchesIds = member2.matches.all.map { |match| match.id }
+
+      expect(member1MatchesIds).to include match1.id
+      expect(member1MatchesIds).to include match2.id
+      expect(member1MatchesIds).to include match3.id
+      expect(member1MatchesIds).to include match4.id
+
+      expect(member2MatchesIds).to include match1.id
+      expect(member2MatchesIds).not_to include match2.id
+      expect(member2MatchesIds).not_to include match3.id
+      expect(member2MatchesIds).not_to include match4.id
+    end
+  end
 end
