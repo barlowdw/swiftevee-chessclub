@@ -1,24 +1,32 @@
 require 'rails_helper'
 
 RSpec.describe Member, type: :model do
+  describe "#create" do
+    it "should create ranking" do
+      member = Member.create!(first_name: "Derrick", last_name: "Barlow", email: "barlow.dw@gmail.com", date_of_birth: Date.new(1990, 1, 10))
+
+      expect(member.ranking).not_to be_nil
+    end
+  end
+
   describe "#valid?" do
     it "should not be valid when empty" do
       expect(Member.new).not_to be_valid
     end
 
-    it "should  notbe valid without first_name" do
+    it "should not be valid without first_name" do
       expect(Member.new(last_name: "Barlow", email: "barlow.dw@gmail.com", date_of_birth: Date.new(1990, 1, 10))).not_to be_valid
     end
 
-    it "should  notbe valid without last_name" do
+    it "should not be valid without last_name" do
       expect(Member.new(first_name: "Derrick", email: "barlow.dw@gmail.com", date_of_birth: Date.new(1990, 1, 10))).not_to be_valid
     end
 
-    it "should  notbe valid without email" do
+    it "should notbe valid without email" do
       expect(Member.new(first_name: "Derrick", last_name: "Barlow", date_of_birth: Date.new(1990, 1, 10))).not_to be_valid
     end
 
-    it "should  notbe valid without date_of_birth" do
+    it "should not be valid without date_of_birth" do
       expect(Member.new(first_name: "Derrick", last_name: "Barlow", email: "barlow.dw@gmail.com")).not_to be_valid
     end
 

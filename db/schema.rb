@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_18_110137) do
+ActiveRecord::Schema.define(version: 2021_04_18_140930) do
 
   create_table "matches", force: :cascade do |t|
     t.integer "member1_id"
@@ -29,6 +29,15 @@ ActiveRecord::Schema.define(version: 2021_04_18_110137) do
     t.integer "club_games_played"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "rankings", force: :cascade do |t|
+    t.integer "member_id"
+    t.integer "position"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["member_id"], name: "index_rankings_on_member_id", unique: true
+    t.index ["position"], name: "index_rankings_on_position"
   end
 
 end
