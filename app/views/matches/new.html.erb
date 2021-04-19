@@ -5,7 +5,7 @@
 
         <div>
             <%= form.label :member1, "Member 1" %>
-            <%= form.select :member1_id, options_for_select(@members_select), {}, class: 'form-control' %>
+            <%= form.select :member1_id, options_for_select(@members_select ? @members_select : {}), {}, class: 'form-control' %>
             <% if @match.errors.full_messages_for(:member1).present? %>       
                 <div class="alert alert-warning" role="alert">
                     <% @match.errors.full_messages_for(:member1).each do |message| %>
@@ -17,7 +17,7 @@
 
         <div>
             <%= form.label :member2, "Member 2" %>
-            <%= form.select :member2_id, options_for_select(@members_select), {}, class: 'form-control' %>
+            <%= form.select :member2_id, options_for_select(@members_select ? @members_select : {}), {}, class: 'form-control' %>
             <% if @match.errors.full_messages_for(:member2).present? %>       
                 <div class="alert alert-warning" role="alert">
                     <% @match.errors.full_messages_for(:member2).each do |message| %>
