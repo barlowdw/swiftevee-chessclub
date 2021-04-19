@@ -4,7 +4,7 @@ Simple Chess club application that allows users to capture members and matches. 
 
 * Setup
 
-This application was built using ruby 2.5.1. You can check your ruby version by running `ruby -v`. 
+This application was built using ruby 2.7.2. You can check your ruby version by running `ruby -v`. 
 This application uses bundler to install gems. To install budler run `gem install bundler`. This application uses bundler version 2. To check your version of bundler run `bundle -v`.
 
 This application uses sqlite v3 for development and testing instances. To check your version of sqlite run the following command `sqlite3 --version`. This application uses postgres for the production environment, which is beyond the scope of this readme.
