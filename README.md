@@ -9,9 +9,9 @@ This application uses bundler to install gems. To install budler run `gem instal
 
 The following commands should be run to make sure the application has all required gems and setup files:
 
-`bundle install`
-`bundle exec rails webpacker:install`
-`bundle exec rake db:migrate`
+`bundle install`\
+`bundle exec rails webpacker:install`\
+`bundle exec rake db:migrate`\
 
 * Tests
 
