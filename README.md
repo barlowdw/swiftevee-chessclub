@@ -5,7 +5,7 @@ Simple Chess club application that allows users to capture members and matches. 
 * Setup
 
 This application was built using ruby 2.5.1. You can check your ruby version by running `ruby -v`. 
-This application uses bundler to install gems. To install budler run `gem install bundler`
+This application uses bundler to install gems. To install budler run `gem install bundler`. This application uses bundler version 2. To check your version of bundler run `bundle -v`.
 
 The following commands should be run to make sure the application has all required gems and setup files:
 
