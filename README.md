@@ -1,24 +1,26 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Simple Chess club application that allows users to capture members and matches. It also displays current ranking and number of matches played.
 
-Things you may want to cover:
+* Setup
 
-* Ruby version
+This application was built using ruby 2.5.1. You can check your ruby version by running `ruby -v`. 
+This application uses bundler to install gems. To install budler run `gem install bundler`
 
-* System dependencies
+The following commands should be run to make sure the application has all required gems and setup files:
 
-* Configuration
+`bundle install`
+`bundle exec rails webpacker:install`
+`bundle exec rake db:migrate`
 
-* Database creation
+* Tests
 
-* Database initialization
+Tests can be run by running the following commnad:
 
-* How to run the test suite
+`bundle exec rake`
 
-* Services (job queues, cache servers, search engines, etc.)
+* Run
 
-* Deployment instructions
+The server can started using the following command. Make sure that all steps in the Setup section have been followed.
 
-* ...
+`bundle exec rails s`
