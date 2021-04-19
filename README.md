@@ -13,7 +13,7 @@ The following commands should be run to make sure the application has all requir
 
 `bundle install`\
 `bundle exec rails webpacker:install`\
-`bundle exec rake db:migrate`\
+`bundle exec rake db:migrate`
 
 * Tests
 
